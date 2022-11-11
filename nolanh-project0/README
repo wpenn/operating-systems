@@ -1,0 +1,61 @@
+=======================================================================
+---------------------------Project 0 README----------------------------
+=======================================================================
+
+=======================================================================
+[1] Name:
+=======================================================================
+Nolan C Hendrickson
+
+=======================================================================
+[2] PennKey:
+=======================================================================
+nolanh
+
+=======================================================================
+[3] Submitted Source Files:
+=======================================================================
+penn-shredder.c
+README
+Makefile
+
+=======================================================================
+[4] Overview of work accomplished:
+=======================================================================
+I handled all points 1.1-1.9 in the project 0 doc (forking, timing with kill, prompting and I/O, argument delimiters, execution, ^C, ^D, penn-shredder arguments). 
+
+I also handled error handling as suggested in section 2. I handled memory errors mentioned in section 4, abided by the system calls mentioned in section 5, and used valgrind to debug.
+
+=======================================================================
+[5]  Description of code and code layout:
+=======================================================================
+
+My code is layed out as follows.
+
+The code is split into 7 methods:
+==> getTimeout: Computes the timeout for the penn-shredder program.
+==> strCpy: copies a string
+==> signalFunction: Handles ^C
+==> signalHandler: kills the process
+==> parseInput: removes whitespace form penn-shredder input and returns 
+the tokens
+==> runShredder: Runs the penn-shredder shell and forks the process
+==> main: The entry point for penn-shredder
+
+When someone runs penn-shredder, main will be called first. This function
+will determine if the right number of arguments were given, set the 
+global timeout variable, and if no errors are thrown, call runShredder().
+
+When runShredder() is called, it prints the PROMPT then listens for 
+ ^C, ^D, Enter, or any other text that is inputted to penn-shredder 
+ through the terminal. If text is inputted then runShredder() calls parseInput() in order to extract the relevant text from the command line.
+ After having forked the process, and based on the global pid, if the 
+ process is a child we execute the commands returned from parseInput().
+ Otherwise if we are a parent, we set an alarm if the timeout is valid, 
+ wait for a return status, and then if the child terminates gracefully we cancel the alarm. Otherwise if it is killed then we write the CATCHPHRASE and re-prompt the user.
+
+=======================================================================
+[6] General comments and anything that can help us grade your code:
+=======================================================================
+Please look at the comments within my code to guide you through what
+each function does, returns, and takes in.
