@@ -1,0 +1,11 @@
+Makefile
+README
+log.txt
+main.c
+main.o
+out
+out.txt
+parser.h
+parser.o
+penn-shell
+wespenn-nolanh-project1.tar.gz

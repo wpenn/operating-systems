@@ -1,0 +1,2 @@
+ls -lh | more | more | wc
+cat out.txt

@@ -1,0 +1,62 @@
+# 21fa-project-1-group-81
+
+=======================================================================
+---------------------------Project 1 README----------------------------
+=======================================================================
+
+=======================================================================
+[1] Names:
+=======================================================================
+Nolan C Hendrickson
+Wesley M Penn
+
+=======================================================================
+[2] PennKeys:
+=======================================================================
+nolanh
+wespenn
+
+=======================================================================
+[3] Submitted Source Files:
+=======================================================================
+main.c
+pidManager.c
+pidManager.h
+parser.h
+README
+Makefile
+
+=======================================================================
+[4] Overview of work accomplished:
+=======================================================================
+We handled all points 1.1-1.11 in the project 1 doc. This included:
+- switching to execvp
+- detecting interactive and non-interactive shells
+- standard input/output redirections inclusing combining redirections
+- pipelines
+- dealing with foreground and background processes
+- job control, including fg, bg, jobs
+
+We also handled error handling. We handled memory errors mentioned in section 4, 
+abided by the system calls mentioned in section 2, and used valgrind to debug.
+
+=======================================================================
+[5]  Description of code and code layout:
+=======================================================================
+
+Our code is layed out as follows.
+
+File 1 [main.c]:
+
+
+File 2 [pidManager.c]:
+This class contains a series helper functions which manage the pids and gpids.
+
+File 3 [pidManager.h]:
+This is the header file for pidManager.c
+
+=======================================================================
+[6] General comments and anything that can help us grade your code:
+=======================================================================
+Please look at the comments within our code to guide you through what
+each function does, returns, and takes in.
